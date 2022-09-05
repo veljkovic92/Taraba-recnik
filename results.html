@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Taraba Tech</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=Encode+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="/styles/index.css"
+    />
+    
+    <script
+      src="https://kit.fontawesome.com/0e611d58e3.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+
+
+  </head>
+  <body>
+    <header id="header">
+      <nav class="top-nav">
+        <div class="top-nav__left">
+          <span><i class="fa fa-hashtag"></i></span>
+          <span>речник.</span>
+          <span></span>
+        </div>
+        <div class="top-nav__right">
+          <a class="search"><i class="fa fa-solid fa-search"></i></a>
+          <a><i class="fa fa-solid fa-lightbulb"></i></a>
+          <a><i class="fa fa-solid fa-address-book"></i></a>
+        </div>
+      </nav>
+
+      <nav class="bot-nav">
+        <div class="bot-nav__left">
+          <div class="bot-nav__left__inside">
+            <a>А</a>
+            <a>Б</a>
+            <a>В</a>
+            <a>Г</a>
+            <a>Д</a>
+            <a>Ђ</a>
+            <a>Е</a>
+            <a>Ж</a>
+            <a>З</a>
+            <a>И</a>
+            <a>Ј</a>
+            <a>К</a>
+            <a>Л</a>
+            <a>Љ</a>
+            <a>М</a>
+            <a>Н</a>
+            <a>Њ</a>
+            <a>О</a>
+            <a>П</a>
+            <a>Р</a>
+            <a>С</a>
+            <a>Т</a>
+            <a>Ћ</a>
+            <a>У</a>
+            <a>Ф</a>
+            <a>Х</a>
+            <a>Ц</a>
+            <a>Џ</a>
+            <a>Ш</a>
+          </div>
+       
+        </div>
+        <div class="backdrop"></div>
+        <div class="search-container">
+          
+          <label for="search"></label>
+          <input class="search-input" id="search" placeholder="Ваша реч" name="search">
+          <div class="search-buttons">
+            <button class="search-btn-find">Пронађи</button>
+            <button class="search-btn-close">Затвори</button>
+          </div>         
+        </div>
+        
+        <div class="bot-nav__right">
+          <span class="search"><i class="fa fa-solid fa-search"></i></span>
+          <span><i class="fa fa-solid fa-bars"></i></span>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <section>
+        <h2 class="matched-words"></h2>
+      </section>
+      <section>
+        <h2 class="similar-words">Речи повезане са башом претрагом</h2>
+      </section>
+      <section>
+        <h2 class="repeating-words">Најчешће прегледане речи</h2>
+      </section>
+    </main>
+    <script src="index.js"></script>
+    </body>
+
+    </html>
