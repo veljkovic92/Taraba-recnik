@@ -6,32 +6,40 @@
 
 body {
   margin: 0;
-  width: 100vw;
+}
+
+.container {
+  padding-left: 20px;
+  padding-right: 20px;
+  overflow: hidden;
 }
 
 /* NAV */
+
+#header {
+  padding: 20px;
+}
 
 .top-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2%;
   font-weight: 700;
-  font-size: 120%;
+  font-size: 1.2rem;
 }
 
 .bot-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5%;
-  height: 2rem;
+  margin-top: 30px;
 }
 
 .bot-nav__left {
-  flex-basis: 60%;
+  flex-basis: 50%;
   display: inline;
-  overflow-x: scroll;
+  overflow-x: auto;
+  overflow-y: hidden;
   border: 1px solid grey;
   padding: 0.5rem;
   border-radius: 10px;
@@ -47,7 +55,7 @@ body {
 }
 
 .bot-nav__right {
-  flex-basis: 40%;
+  flex-basis: 50%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -58,6 +66,10 @@ body {
   border: 1px solid grey;
   padding: 0.5rem;
   border-radius: 50%;
+}
+
+.bot-nav__right__links a:nth-child(3n) {
+  color: rgb(255, 100, 0);
 }
 
 /* SEARCH */
@@ -126,20 +138,20 @@ body {
 
 /* MAIN */
 
-h2,
-p {
-  margin-left: 3%;
-  margin-top: 3%;
-  margin-bottom: 3%;
+section {
+  margin-top: 20px;
 }
 
 .suggest-btn {
   padding: 0.7rem 1.5rem;
   border-radius: 10px;
   border: none;
-  background-image: linear-gradient(to right, rgb(255, 153, 0), rgb(255, 102, 0));
+  background-image: linear-gradient(
+    to right,
+    rgb(255, 153, 0),
+    rgb(255, 100, 0)
+  );
   color: white;
-  margin-left: 3%;
 }
 
 .intro {
@@ -147,14 +159,13 @@ p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  width: 90vw;
-  height: 500px;
-  margin: 3rem auto;
+  height: 90vh;
   padding: 1.5rem 1rem;
   background-color: rgb(43, 43, 43);
   color: white;
   border-radius: 10px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 .intro-top {
@@ -185,7 +196,7 @@ p {
   min-width: 100vw;
   margin-top: -3rem;
   position: relative;
-  overflow: scroll;
+  overflow: auto;
 }
 
 .suggest-word {
@@ -194,13 +205,13 @@ p {
   bottom: 50%;
   width: 4rem;
   height: 4rem;
-  font-size: 50%;
+  font-size: 0.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   border-radius: 100%;
-  border: 5px solid orange;
+  border: 5px solid rgb(255, 100, 0);
   padding: 1rem;
   transform: translateY(50%);
   z-index: 10;
@@ -217,13 +228,12 @@ p {
   min-width: min-content;
   gap: 2rem;
   height: 16rem;
-  padding: 1rem;
 }
 .fa-instagram {
-  color: rgb(255, 136, 0);
+  color: rgb(255, 100, 0);
 }
 .taraba-webpage {
- color:orange
+  color: rgb(255, 100, 0);
 }
 .instagram {
   display: flex;
@@ -231,10 +241,9 @@ p {
 }
 
 .instagram img {
-  width: 12rem;
-  height: 16rem;
+  width: 150px;
   border-radius: 15px;
-  margin: 1%;
+  margin: 10px;
 }
 
 section:last-of-type a {
@@ -260,7 +269,7 @@ section:last-of-type a {
 }
 
 .word-item-top img {
-  width: 75%;
+  width: 100px;
 }
 
 .word-item-bot {
@@ -294,17 +303,19 @@ section:last-of-type a {
     flex-basis: 75vw;
   }
   section {
-    padding-left: 3%;
-    overflow: hidden;
+    margin-top: 40px;
   }
+
   .intro {
     width: 100vw;
+    height: 70vh;
     border-radius: 0;
     flex-direction: row;
     align-items: center;
     gap: 5rem;
-    padding: 0 4%;
-    height: 400px;
+    padding: 0 40px;
+    margin-left: 0;
+    margin-right: 0;
   }
 
   .intro-top {
@@ -317,11 +328,19 @@ section:last-of-type a {
   }
 
   .intro img {
-    width: 40vw;
+    width: 300px;
+  }
+  .instagram img {
+    width: 180px;
   }
 }
 
 @media (min-width: 1024px) {
+  .container {
+    padding-left: 100px;
+    padding-right: 100px;
+    overflow: hidden;
+  }
   .bot-nav__right__links {
     display: flex;
     align-items: center;
@@ -330,13 +349,9 @@ section:last-of-type a {
   .hamburger-menu {
     display: none;
   }
-  section {
-    padding-left: 8%;
-    overflow: hidden;
-  }
 
   .intro {
-    height: 400px;
+    height: 50vh;
   }
 
   .intro-top {
@@ -345,35 +360,49 @@ section:last-of-type a {
 
   .intro-bot {
     flex-basis: 50%;
-    padding: 0 4%;
   }
 
   .suggest-btn {
     padding: 1.2rem 3rem;
   }
+  .suggest-word {
+    right: 16%;
+    width: 5rem;
+    height: 5rem;
+    font-size: 0.7rem;
+  }
 
   .word-item {
-    width: 11rem;
-    height: 12rem;
+    width: 15vw;
+  }
+  .instagram img {
+    width: 220px;
   }
 }
 
 @media (min-width: 1366px) {
-  * {
-    font-size: 103%;
+  body {
+    font-size: 1.2rem;
+  }
+  .container {
+    padding-left: 150px;
+    padding-right: 150px;
+    overflow: hidden;
   }
   h2 {
-    font-size: 160%;
+    font-size: 1.5rem;
   }
   .top-nav {
-    font-size: 180%;
-    padding: 2%;
+    font-size: 2rem;
   }
   .bot-nav__left {
-    flex-basis: 50vw;
+    flex-basis: max-content;
   }
   .bot-nav__right {
-    flex-basis: 50vw;
+    flex-basis: 50%;
+  }
+  section {
+    margin-top: 70px;
   }
 
   .intro {
@@ -381,8 +410,6 @@ section:last-of-type a {
     border-radius: 0;
     flex-direction: row;
     align-items: center;
-    gap: 0;
-    padding: 0 10%;
     height: 400px;
   }
 
@@ -395,51 +422,35 @@ section:last-of-type a {
   }
 
   .word-item {
-    width: 13rem;
-    height: 15rem;
-  }
-  .suggest-word {
-    font-size: 103%;
-    width: 8rem;
-    height: 8rem;
-  }
-  .last-added-words,
-  .matched-words,
-  .similar-words,
-  .repeating-words {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    width: 15vw;
+    height: 20vh;
   }
 
-  .word-item-bot {
-    font-size: 100%;
+  .word-item img {
+    width: 120px;
   }
+
+  .suggest-word {
+    font-size: 0.8rem;
+    width: 6rem;
+    height: 6rem;
+  }
+
   .instagram img {
-    width: 18rem;
-    height: 22rem;
+    width: 350px;
   }
 }
 
 @media (min-width: 1440px) {
-  * {
-    font-size: 107%;
-  }
   .intro {
     height: 480px;
   }
   .suggest-btn {
     padding: 1.5rem 3.5rem;
   }
-  .word-item {
-    width: 15rem;
-    height: 17rem;
-  }
-  .word-item-bot {
-    font-size: 110%;
-  }
+
   .instagram img {
-    width: 26rem;
-    height: 30rem;
+    width: 370px;
   }
 }
 
@@ -450,5 +461,24 @@ section:last-of-type a {
   .repeating-words {
     margin-top: 2.5rem;
     margin-bottom: 2rem;
+  }
+  .word-item {
+    width: 15vw;
+    height: 25vh;
+  }
+
+  .word-item img {
+    width: 180px;
+  }
+  .suggest-word {
+    width: 8rem;
+    height: 8rem;
+    font-size: 1.1rem;
+  }
+  .bot-nav__right {
+    flex-basis: 60%;
+  }
+  .instagram img {
+    width: 400px;
   }
 }
