@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700&family=Encode+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;700;800&family=Encode+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -90,18 +90,28 @@
         </div>
         
         <div class="bot-nav__right">
+          
           <span class="search"><i class="fa fa-solid fa-search"></i></span>
-          <span><i class="fa fa-solid fa-bars"></i></span>
+          <div class="bot-nav__right__links">
+            <a>Почетна</a>
+            <a>Речник</a>
+            <a>Предложи реч</a>
+            <a>О речнику</a>
+          </div>
+          <span class="hamburger-menu"><i class="fa fa-solid fa-bars"></i></span>
         </div>
       </nav>
     </header>
     <main>
       
       <section class="intro">
-        <img src="./assets/book.png" />
-        <h2>Тараба речник</h2>
-        <p>Тараба речник се бави страним речима у српском језику, давајући им објашњење и алтернативу.</p>
-        <p>Пратите нас на: <link href="www.linkedin.com/company/taraba-tech">LinkedIn-у</link></p>
+        <div class="intro-top">
+          <img src="./assets/book.png" class="intro-img"/>
+        </div>
+        
+        <div class="intro-bot"><h2>Тараба речник</h2>
+          <p>Тараба речник се бави страним речима у српском језику, давајући им објашњење и алтернативу.</p>
+          <p>Пратите нас на: <link href="www.linkedin.com/company/taraba-tech">LinkedIn-у</link></p></div>
       </section>
       <section>
         <h2>Последње додате речи</h2>
@@ -117,14 +127,13 @@
         <button class="suggest-btn">Предложи реч</button>
       </section>
       <section>
-        <h2>Последње додате речи</h2>
+        <h2 class="repeating-words-header">Најчешће прегледане речи</h2>
         <div class="flex-container">
-          <div class="last-added-words">         
-          </div>
+          <div class="repeating-words"></div>
         </div>
       </section>
       <section>
-        <h2><i class="fa fa-brands fa-instagram"></i> <a>@taraba.rs</a> речник</h2>
+        <h2><i class="fa fa-brands fa-instagram"></i> <a class="taraba-webpage">@taraba.rs</a> речник</h2>
         <p>Погледај како изгледа садржај на нашем Инстаграм профилу</p>
         
           <div class="instagram"> 

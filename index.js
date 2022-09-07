@@ -88,7 +88,7 @@ const matchedWordsHeader = $(".matched-words-header");
 const matchedWords = $(".matched-words");
 const similarWords = $(".similar-words");
 const lastAddedWords = $(".last-added-words");
-const wordItem = $(".last-word-item");
+const wordItem = $(".word-item");
 const repeatingWords = $(".repeating-words");
 const instagram = $(".instagram");
 
@@ -115,7 +115,6 @@ sameInitials.some((initial) => {
   for (i = 0; i < searchLetters.length; i++) {
     if (searchLetters[i].textContent.toLowerCase() == initial) {
       searchLetters[i].style.color = "orange";
-      
     }
   }
 });
@@ -206,24 +205,24 @@ matchedWordsHeader.text(`Речи које у свом називу садрже
 
 storedWords.map((word) => {
   lastAddedWords.append(
-    `<div id=${word.id} onClick=itemClickHandler(event) class="last-word-item"><img src="./assets/study.jpg"><div><h4>#${word.name}</h4><p>${word.foreign}</p></div></div>`
+    `<div id=${word.id} onClick=itemClickHandler(event) class="word-item"><div class="word-item-top"><img src="./assets/study.jpg"></div><div class="word-item-bot"><h4>#${word.name}</h4><p>${word.foreign}</p></div></div>`
   );
 });
 
 storedNameContainedWords.map((word) => {
   matchedWords.append(
-    `<div id=${word.id} class="last-word-item"><img src="./assets/study.jpg"><div><h4>#${word.name}</h4><p>${word.foreign}</p></div></div>`
+    `<div id=${word.id} class="word-item"><div class="word-item-top"><img src="./assets/study.jpg"></div><div class="word-item-bot"><h4>#${word.name}</h4><p>${word.foreign}</p></div></div>`
   );
 });
 
 storedSimilarWords.map((word) => {
   similarWords.append(
-    `<div id=${word.id} class="last-word-item"><img src="./assets/study.jpg"><div><h4>#${word.name}</h4><p>${word.foreign}</p></div></div>`
+    `<div id=${word.id} class="word-item"><div class="word-item-top"><img src="./assets/study.jpg"></div><div class="word-item-bot"><h4>#${word.name}</h4><p>${word.foreign}</p></div></div>`
   );
 });
 
 oftenViewedWords.map((word) => {
   repeatingWords.append(
-    `<div id=${word.id} class="last-word-item"><img src="./assets/study.jpg"><div><h4>#${word.name}</h4><p>${word.foreign}</p></div></div>`
+    `<div id=${word.id} class="word-item"><div class="word-item-top"><img src="./assets/study.jpg"></div><div class="word-item-bot"><h4>#${word.name}</h4><p>${word.foreign}</p></div></div>`
   );
 });
