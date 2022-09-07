@@ -74,11 +74,11 @@ const storedMatchedWords = JSON.parse(localStorage.getItem("matchedWords"));
 const storedNameContainedWords = JSON.parse(
   localStorage.getItem("nameContained")
 );
-console.log(storedNameContainedWords);
 
 const storedSimilarWords = JSON.parse(localStorage.getItem("similarWords"));
 const oftenViewedWords = JSON.parse(localStorage.getItem("oftenViewedWords"));
 
+const searchLetters = $(".letter");
 const searchBtn = $(".search");
 const searchContainer = $(".search-container");
 const backdrop = $(".backdrop");
@@ -95,6 +95,31 @@ const instagram = $(".instagram");
 const lastSearchedWord = storedWords[storedWords.length - 1];
 const lastMatchedWord = storedMatchedWords[storedMatchedWords.length - 1];
 
+const searchLettersArray = [];
+const storedWordsArray = [];
+
+for (let i = 0; i < searchLetters.length; i++) {
+  searchLettersArray.push(searchLetters[i].innerText.toLocaleLowerCase());
+}
+
+for (let i = 0; i < storedWords.length; i++) {
+  storedWordsArray.push(storedWords[i].name.slice(0, 1));
+}
+
+const sameInitials = searchLettersArray.filter((initial) =>
+  storedWordsArray.includes(initial)
+);
+console.log(sameInitials);
+
+sameInitials.some((initial) => {
+  for (i = 0; i < searchLetters.length; i++) {
+    if (searchLetters[i].textContent.toLowerCase() == initial) {
+      searchLetters[i].style.color = "orange";
+      
+    }
+  }
+});
+
 searchBtn.on("click", function () {
   searchContainer.addClass("visible");
   backdrop.addClass("show");
@@ -102,6 +127,7 @@ searchBtn.on("click", function () {
 
 searchInputtedTextBtn.on("click", function () {
   const existingWords = JSON.parse(localStorage.getItem("words"));
+  localStorage.setItem("similarWords", JSON.stringify([]));
   const searchInputText = $(".search-input").val();
   if (existingWords.find((word) => word.name.includes(searchInputText))) {
     const storedMatchedWords = JSON.parse(localStorage.getItem("matchedWords"));
@@ -121,10 +147,24 @@ searchInputtedTextBtn.on("click", function () {
     });
 
     storedWords.forEach((word) => {
-      if (word.similar === searchInputText) {
-        const similarWords = [];
-        similarWords.push(word);
+      let similarWords = JSON.parse(localStorage.getItem("similarWords"));
+      if (word.similar == searchInputText) {
+        similarWords = [word];
         localStorage.setItem("similarWords", JSON.stringify(similarWords));
+      }
+    });
+
+    storedWords.forEach((word) => {
+      if (word.name == searchInputText) {
+        const oftenViewedWords = JSON.parse(
+          localStorage.getItem("oftenViewedWords")
+        );
+
+        oftenViewedWords.push(word);
+        localStorage.setItem(
+          "oftenViewedWords",
+          JSON.stringify(oftenViewedWords)
+        );
       }
     });
 
@@ -187,5 +227,3 @@ oftenViewedWords.map((word) => {
     `<div id=${word.id} class="last-word-item"><img src="./assets/study.jpg"><div><h4>#${word.name}</h4><p>${word.foreign}</p></div></div>`
   );
 });
-
-

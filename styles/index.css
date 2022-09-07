@@ -160,8 +160,26 @@ p {
   display: flex;
   min-width: 100vw;
   margin-top: -3rem;
-
+  position: relative;
   overflow: scroll;
+}
+
+.suggest-word {
+  position: absolute;
+  right: 8%;
+  bottom: 50%;
+  width: 4rem;
+  height: 4rem;
+  font-size: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 100%;
+  border: 5px solid orange;
+  padding: 1rem;
+  transform: translateY(50%);
+  z-index: 10;
 }
 
 .last-added-words,
@@ -182,7 +200,6 @@ p {
   width: 40vw;
   height: 12rem;
   border-radius: 15px;
-  
 }
 
 section:last-of-type a {
