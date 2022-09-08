@@ -78,8 +78,10 @@ const storedNameContainedWords = JSON.parse(
 const storedSimilarWords = JSON.parse(localStorage.getItem("similarWords"));
 const oftenViewedWords = JSON.parse(localStorage.getItem("oftenViewedWords"));
 
+const intro = $(".intro");
 const searchLetters = $(".letter");
 const searchBtn = $(".search");
+const darkModeBtn = $(".dark-mode-nav-btn");
 const searchContainer = $(".search-container");
 const backdrop = $(".backdrop");
 const searchInputtedTextBtn = $(".search-btn-find");
@@ -89,8 +91,11 @@ const matchedWords = $(".matched-words");
 const similarWords = $(".similar-words");
 const lastAddedWords = $(".last-added-words");
 const wordItem = $(".word-item");
+
 const repeatingWords = $(".repeating-words");
 const instagram = $(".instagram");
+
+
 
 const lastSearchedWord = storedWords[storedWords.length - 1];
 const lastMatchedWord = storedMatchedWords[storedMatchedWords.length - 1];
@@ -109,7 +114,6 @@ for (let i = 0; i < storedWords.length; i++) {
 const sameInitials = searchLettersArray.filter((initial) =>
   storedWordsArray.includes(initial)
 );
-console.log(sameInitials);
 
 sameInitials.some((initial) => {
   for (i = 0; i < searchLetters.length; i++) {
@@ -123,6 +127,14 @@ searchBtn.on("click", function () {
   searchContainer.addClass("visible");
   backdrop.addClass("show");
 });
+
+function darkModeToggler() {
+  $(document.body).toggleClass("dark-mode-body");
+
+ 
+}
+
+darkModeBtn.on("click", darkModeToggler);
 
 searchInputtedTextBtn.on("click", function () {
   const existingWords = JSON.parse(localStorage.getItem("words"));
@@ -205,24 +217,24 @@ matchedWordsHeader.text(`Речи које у свом називу садрже
 
 storedWords.map((word) => {
   lastAddedWords.append(
-    `<div id=${word.id} onClick=itemClickHandler(event) class="word-item"><div class="word-item-top"><img src="./assets/study.jpg"></div><div class="word-item-bot"><h4>#${word.name}</h4><p>${word.foreign}</p></div></div>`
+    `<div id=${word.id} onClick=itemClickHandler(event) class="word-item"><img src="./assets/study.jpg"><div class="word-item-bot"><h4>#${word.name}</h4><p>${word.foreign}</p></div></div>`
   );
 });
 
 storedNameContainedWords.map((word) => {
   matchedWords.append(
-    `<div id=${word.id} class="word-item"><div class="word-item-top"><img src="./assets/study.jpg"></div><div class="word-item-bot"><h4>#${word.name}</h4><p>${word.foreign}</p></div></div>`
+    `<div id=${word.id} class="word-item"><img src="./assets/study.jpg"><div class="word-item-bot"><h4>#${word.name}</h4><p>${word.foreign}</p></div></div>`
   );
 });
 
 storedSimilarWords.map((word) => {
   similarWords.append(
-    `<div id=${word.id} class="word-item"><div class="word-item-top"><img src="./assets/study.jpg"></div><div class="word-item-bot"><h4>#${word.name}</h4><p>${word.foreign}</p></div></div>`
+    `<div id=${word.id} class="word-item"><img src="./assets/study.jpg"><div class="word-item-bot"><h4>#${word.name}</h4><p>${word.foreign}</p></div></div>`
   );
 });
 
 oftenViewedWords.map((word) => {
   repeatingWords.append(
-    `<div id=${word.id} class="word-item"><div class="word-item-top"><img src="./assets/study.jpg"></div><div class="word-item-bot"><h4>#${word.name}</h4><p>${word.foreign}</p></div></div>`
+    `<div id=${word.id} class="word-item"><img src="./assets/study.jpg"><div class="word-item-bot"><h4>#${word.name}</h4><p>${word.foreign}</p></div></div>`
   );
 });

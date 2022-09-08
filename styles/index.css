@@ -8,6 +8,20 @@ body {
   margin: 0;
 }
 
+button {
+  cursor: pointer;
+}
+
+.dark-mode-body {
+  background-color: rgb(43, 43, 43);
+  color: white;
+}
+
+.dark-mode-intro {
+  background-color: white;
+  color: black;
+}
+
 .container {
   padding-left: 20px;
   padding-right: 20px;
@@ -26,6 +40,13 @@ body {
   align-items: center;
   font-weight: 700;
   font-size: 1.2rem;
+}
+
+.top-nav__right a {
+  cursor: pointer;
+}
+
+.dark-mode-nav-btn {
 }
 
 .bot-nav {
@@ -49,6 +70,10 @@ body {
 .bot-nav__left__inside {
   width: max-content;
 }
+.letter {
+  text-decoration: none;
+  cursor: pointer;
+}
 
 .hidden {
   display: none;
@@ -59,6 +84,12 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.right-nav-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
 .bot-nav__right span:first-of-type {
@@ -73,6 +104,10 @@ body {
 }
 
 /* SEARCH */
+
+.search-nav-btn {
+  cursor: pointer;
+}
 
 .search-container {
   display: none;
@@ -159,8 +194,7 @@ section {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 90vh;
-  padding: 1.5rem 1rem;
+  padding: 1.5rem 0;
   background-color: rgb(43, 43, 43);
   color: white;
   border-radius: 10px;
@@ -182,7 +216,7 @@ section {
 }
 
 .intro-img {
-  max-width: 20rem;
+  width: 250px;
 }
 
 .intro p {
@@ -191,10 +225,19 @@ section {
 
 /* WORD ITEMS */
 
+body.dark-mode-body .word-item-bot {
+  background-color: lightgray;
+  color: black;
+}
+
+body.dark-mode-body .intro {
+  background-color: lightgray;
+  color: black;
+}
+
 .flex-container {
   display: flex;
   min-width: 100vw;
-  margin-top: -3rem;
   position: relative;
   overflow: auto;
 }
@@ -223,11 +266,9 @@ section {
 .similar-words,
 .repeating-words {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   min-width: min-content;
   gap: 2rem;
-  height: 16rem;
 }
 .fa-instagram {
   color: rgb(255, 100, 0);
@@ -251,38 +292,34 @@ section:last-of-type a {
 }
 
 .word-item {
-  width: 8rem;
-  height: 9rem;
+  position: relative;
   border: 1px solid lightgrey;
   border-radius: 10px;
   box-shadow: 2px 2px 4px 1px black;
-  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  overflow: hidden;
 }
 
-.word-item-top {
-  flex-basis: 60%;
-  text-align: center;
-}
-
-.word-item-top img {
-  width: 100px;
+.word-item img {
+  width: 130px;
 }
 
 .word-item-bot {
-  flex-basis: 40%;
+  position: absolute;
+  bottom: 0;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 5px;
   border-radius: 10px;
   width: 100%;
   background-color: rgb(43, 43, 43);
   color: white;
-  padding: 0.2rem;
+  padding: 0.4rem;
   font-size: 85%;
 }
 .word-item-bot h4,
@@ -330,6 +367,9 @@ section:last-of-type a {
   .intro img {
     width: 300px;
   }
+  .word-item img {
+    width: 150px;
+  }
   .instagram img {
     width: 180px;
   }
@@ -361,6 +401,12 @@ section:last-of-type a {
   .intro-bot {
     flex-basis: 50%;
   }
+  .word-item {
+    border-radius: 20px;
+  }
+  .word-item img {
+    width: 180px;
+  }
 
   .suggest-btn {
     padding: 1.2rem 3rem;
@@ -372,9 +418,6 @@ section:last-of-type a {
     font-size: 0.7rem;
   }
 
-  .word-item {
-    width: 15vw;
-  }
   .instagram img {
     width: 220px;
   }
@@ -383,6 +426,9 @@ section:last-of-type a {
 @media (min-width: 1366px) {
   body {
     font-size: 1.2rem;
+  }
+  .dark-mode-nav-btn {
+    display: none;
   }
   .container {
     padding-left: 150px;
@@ -421,13 +467,8 @@ section:last-of-type a {
     flex-basis: 50%;
   }
 
-  .word-item {
-    width: 15vw;
-    height: 20vh;
-  }
-
   .word-item img {
-    width: 120px;
+    width: 230px;
   }
 
   .suggest-word {
@@ -448,6 +489,9 @@ section:last-of-type a {
   .suggest-btn {
     padding: 1.5rem 3.5rem;
   }
+  .bot-nav__right {
+    flex-basis: 60%;
+  }
 
   .instagram img {
     width: 370px;
@@ -462,13 +506,8 @@ section:last-of-type a {
     margin-top: 2.5rem;
     margin-bottom: 2rem;
   }
-  .word-item {
-    width: 15vw;
-    height: 25vh;
-  }
-
   .word-item img {
-    width: 180px;
+    width: 300px;
   }
   .suggest-word {
     width: 8rem;
