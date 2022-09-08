@@ -80,9 +80,12 @@ const oftenViewedWords = JSON.parse(localStorage.getItem("oftenViewedWords"));
 
 const intro = $(".intro");
 const searchLetters = $(".letter");
-const searchBtn = $(".search");
+const searchBtn = $(".search-nav-btn");
 const darkModeBtn = $(".dark-mode-nav-btn");
 const searchContainer = $(".search-container");
+const hamburgerMenu = $(".hamburger-menu");
+const hamburgerNav = $(".bot-nav__right__links");
+const hamburgerClose = $(".hamburger-menu__close");
 const backdrop = $(".backdrop");
 const searchInputtedTextBtn = $(".search-btn-find");
 const closeSearchContainer = $(".search-btn-close");
@@ -94,8 +97,6 @@ const wordItem = $(".word-item");
 
 const repeatingWords = $(".repeating-words");
 const instagram = $(".instagram");
-
-
 
 const lastSearchedWord = storedWords[storedWords.length - 1];
 const lastMatchedWord = storedMatchedWords[storedMatchedWords.length - 1];
@@ -128,10 +129,16 @@ searchBtn.on("click", function () {
   backdrop.addClass("show");
 });
 
+hamburgerMenu.on("click", function () {
+  hamburgerNav.addClass("bot-nav__right__links--small");
+});
+
+hamburgerClose.on("click", function () {
+  hamburgerNav.removeClass("bot-nav__right__links--small");
+});
+
 function darkModeToggler() {
   $(document.body).toggleClass("dark-mode-body");
-
- 
 }
 
 darkModeBtn.on("click", darkModeToggler);
@@ -186,7 +193,7 @@ searchInputtedTextBtn.on("click", function () {
 });
 
 function itemClickHandler(event) {
-  // window.location.href = `/item-detail${event.path[1].id}.html`;
+  window.location.href = `/item-detail${event.path[1].id}.html`;
 
   storedWords.forEach((word) => {
     if (word.id == event.path[1].id) {
@@ -215,26 +222,22 @@ backdrop.on("click", function () {
 
 matchedWordsHeader.text(`Речи које у свом називу садрже ${lastMatchedWord}`);
 
-storedWords.map((word) => {
-  lastAddedWords.append(
-    `<div id=${word.id} onClick=itemClickHandler(event) class="word-item"><img src="./assets/study.jpg"><div class="word-item-bot"><h4>#${word.name}</h4><p>${word.foreign}</p></div></div>`
-  );
-});
+mappingHandler(storedWords, lastAddedWords);
 
-storedNameContainedWords.map((word) => {
-  matchedWords.append(
-    `<div id=${word.id} class="word-item"><img src="./assets/study.jpg"><div class="word-item-bot"><h4>#${word.name}</h4><p>${word.foreign}</p></div></div>`
-  );
-});
+mappingHandler(storedNameContainedWords, matchedWords);
 
-storedSimilarWords.map((word) => {
-  similarWords.append(
-    `<div id=${word.id} class="word-item"><img src="./assets/study.jpg"><div class="word-item-bot"><h4>#${word.name}</h4><p>${word.foreign}</p></div></div>`
-  );
-});
+mappingHandler(storedSimilarWords, similarWords);
 
-oftenViewedWords.map((word) => {
-  repeatingWords.append(
-    `<div id=${word.id} class="word-item"><img src="./assets/study.jpg"><div class="word-item-bot"><h4>#${word.name}</h4><p>${word.foreign}</p></div></div>`
-  );
-});
+mappingHandler(oftenViewedWords, repeatingWords);
+
+function mappingHandler(words, location) {
+  if (words.length > 0) {
+    return words.map((word) => {
+      location.append(
+        `<div id=${word.id} class="word-item" onClick=itemClickHandler(event)><img src="./assets/study.jpg"><div class="word-item-bot"><h4>#${word.name}</h4><p>${word.foreign}</p></div></div>`
+      );
+    });
+  }
+
+  location.append(`<p>Нема пронађених речи!</p>`);
+}
