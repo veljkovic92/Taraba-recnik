@@ -69,6 +69,11 @@ if (!localStorage.getItem("oftenViewedWords")) {
 }
 
 const storedWords = JSON.parse(localStorage.getItem("words"));
+const lastStoredWords = storedWords.slice(-6);
+
+let someStoredWords = storedWords.sort(() => 0.5 - Math.random());
+someStoredWords = someStoredWords.slice(0, 2);
+
 const storedMatchedWords = JSON.parse(localStorage.getItem("matchedWords"));
 
 const storedNameContainedWords = JSON.parse(
@@ -97,6 +102,7 @@ const wordItem = $(".word-item");
 
 const repeatingWords = $(".repeating-words");
 const instagram = $(".instagram");
+const randomStoredWords = $(".some-stored-words");
 
 const lastSearchedWord = storedWords[storedWords.length - 1];
 const lastMatchedWord = storedMatchedWords[storedMatchedWords.length - 1];
@@ -105,7 +111,7 @@ const searchLettersArray = [];
 const storedWordsArray = [];
 
 for (let i = 0; i < searchLetters.length; i++) {
-  searchLettersArray.push(searchLetters[i].innerText.toLocaleLowerCase());
+  searchLettersArray.push(searchLetters[i].innerText.toLowerCase());
 }
 
 for (let i = 0; i < storedWords.length; i++) {
@@ -193,7 +199,9 @@ searchInputtedTextBtn.on("click", function () {
 });
 
 function itemClickHandler(event) {
-  window.location.href = `/item-detail${event.path[1].id}.html`;
+  const itemName = event.currentTarget.children[1].children[1].innerText;
+
+  window.location.href = `/${itemName}.html`;
 
   storedWords.forEach((word) => {
     if (word.id == event.path[1].id) {
@@ -222,13 +230,15 @@ backdrop.on("click", function () {
 
 matchedWordsHeader.text(`Речи које у свом називу садрже ${lastMatchedWord}`);
 
-mappingHandler(storedWords, lastAddedWords);
+mappingHandler(lastStoredWords, lastAddedWords);
 
 mappingHandler(storedNameContainedWords, matchedWords);
 
 mappingHandler(storedSimilarWords, similarWords);
 
 mappingHandler(oftenViewedWords, repeatingWords);
+
+mappingHandler(someStoredWords, randomStoredWords);
 
 function mappingHandler(words, location) {
   if (words.length > 0) {
@@ -241,3 +251,5 @@ function mappingHandler(words, location) {
 
   location.append(`<p>Нема пронађених речи!</p>`);
 }
+
+

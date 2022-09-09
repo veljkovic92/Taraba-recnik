@@ -15,7 +15,7 @@
       rel="stylesheet"
       type="text/css"
       media="screen"
-      href="/styles/index.css"
+      href="./styles/index.css"
     />
 
     <script
@@ -34,8 +34,12 @@
         </div>
         <div class="top-nav__right">
           <a class="search-nav-btn"><i class="fa fa-solid fa-search"></i></a>
-          <a class="dark-mode-nav-btn"><i class="fa fa-solid fa-lightbulb"></i></a>
-          <a class="dictionary-nav-btn"><i class="fa fa-solid fa-address-book"></i></a>
+          <a class="dark-mode-nav-btn"
+            ><i class="fa fa-solid fa-lightbulb"></i
+          ></a>
+          <a class="dictionary-nav-btn"
+            ><i class="fa fa-solid fa-address-book"></i
+          ></a>
         </div>
       </nav>
 
@@ -73,38 +77,57 @@
             <a class="letter">Џ</a>
             <a class="letter">Ш</a>
           </div>
-       
         </div>
         <div class="backdrop"></div>
         <div class="search-container">
-          
           <label for="search"></label>
-          <input class="search-input" id="search" placeholder="Ваша реч" name="search">
+          <input
+            class="search-input"
+            id="search"
+            placeholder="Ваша реч"
+            name="search"
+          />
           <div class="search-buttons">
             <button class="search-btn-find">Пронађи</button>
             <button class="search-btn-close">Затвори</button>
-          </div>         
+          </div>
         </div>
-        
+
         <div class="bot-nav__right">
-          
-          <span class="search-nav-btn"><i class="fa fa-solid fa-search"></i></span>
+          <span class="search-nav-btn"
+            ><i class="fa fa-solid fa-search"></i
+          ></span>
           <div class="bot-nav__right__links">
             <button class="hamburger-menu__close">X</button>
             <a href="./index.html" class="right-nav-link">Почетна</a>
             <a href="./recnik.html" class="right-nav-link">Речник</a>
-            <a href="./predlog.html" class="right-nav-link suggest-nav-link">Предложи реч</a>
+            <a href="./predlog.html" class="right-nav-link suggest-nav-link"
+              >Предложи реч</a
+            >
             <a href="./about.html" class="right-nav-link">О речнику</a>
           </div>
-          <span class="hamburger-menu"><i class="fa fa-solid fa-bars"></i></span>
+          <span class="hamburger-menu"
+            ><i class="fa fa-solid fa-bars"></i
+          ></span>
         </div>
       </nav>
     </header>
-    <main>
-      <section>
-        <h2>Реч није пронађена</h2>
-      </section>
+    <main class="not-found-container">
+      <div class="container">
+        <div class="text-content">
+          <h2>Реч није пронађена</h2>
+          <p>
+            Можда ниси добро укуцао/ла реч, или реч није још увек унета у
+            речник. Понови претрагу или нам предложи реч ако је нема у речнику.
+          </p>
+          <button class="suggest-btn">Предложи реч</button>
+          <p>Или погледај неку од већ обрађених речи</p>
+        </div>
+        <div class="flex-container">
+          <div class="some-stored-words"></div>
+        </div>
+      </div>
     </main>
-    <script src="index.js"></script>
+    <script src="./index.js"></script>
   </body>
 </html>
