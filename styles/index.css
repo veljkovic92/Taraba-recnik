@@ -24,6 +24,7 @@ a {
 
 #title {
   text-decoration: none;
+  color: inherit;
 }
 
 .dark-mode-body {
@@ -82,6 +83,7 @@ a {
   height: 2.2rem;
   transition: all 0.1s;
 }
+
 .bot-nav__left:hover {
   transform: scale(102%);
 }
@@ -174,6 +176,19 @@ a {
 
 .search-input {
   border-radius: 5px;
+}
+
+.search-info {
+  display: none;
+}
+.show-search-info {
+  display: block;
+  text-align: center;
+  font-size: 0.5rem;
+}
+.search-info.show {
+  text-align: center;
+  font-size: 10px;
 }
 
 .search-buttons {
@@ -311,6 +326,11 @@ body.dark-mode-body .intro {
   width: 100%;
   position: relative;
   overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.flex-container::-webkit-scrollbar {
+  display: none;
 }
 
 .suggest-word {
@@ -346,6 +366,29 @@ body.dark-mode-body .intro {
   min-width: min-content;
   padding: 15px 0;
   gap: 2rem;
+}
+
+.scroll-dot1,
+.scroll-dot2,
+.scroll-dot3 {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: grey;
+}
+.scroll-dot1.dot-active,
+.scroll-dot2.dot-active,
+.scroll-dot3.dot-active {
+  background-color: rgb(255, 100, 0);
+}
+
+.dots-hidden {
+  display: none;
+}
+.dots-shown {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
 }
 
 .fa-instagram {
@@ -551,6 +594,9 @@ body.dark-mode-body .intro {
   .search-btn-close {
     padding: 1rem 2rem;
   }
+  .hamburger-menu__close {
+    display: none;
+  }
   .container {
     padding-left: 150px;
     padding-right: 150px;
@@ -631,8 +677,8 @@ body.dark-mode-body .intro {
 
 @media (min-width: 1920px) {
   .search-container {
-    padding: 8rem;
-    padding-bottom: 2rem;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
   .search-input {
     width: 300px;
