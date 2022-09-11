@@ -104,6 +104,10 @@ a {
   position: relative;
 }
 
+.search-icon {
+  color: rgb(255, 100, 0);
+}
+
 .right-nav-link {
   color: inherit;
   cursor: pointer;
@@ -242,6 +246,10 @@ a {
   padding: 30px;
   gap: 1rem;
   border-radius: 10px;
+}
+
+.hamburger-menu {
+  color: rgb(255, 100, 0);
 }
 
 .hamburger-menu__close {

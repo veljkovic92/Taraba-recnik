@@ -153,7 +153,7 @@ const sameInitials = searchLettersArray.filter((initial) =>
 sameInitials.some((initial) => {
   for (i = 0; i < searchLetters.length; i++) {
     if (searchLetters[i].textContent.toLowerCase() == initial) {
-      searchLetters[i].style.color = "orange";
+      searchLetters[i].style.color = "rgb(255, 100, 0)";
     }
   }
 });
