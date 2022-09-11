@@ -17,6 +17,9 @@ Added:
 - not-found
 + dark mode on specific resolutions
 + onClick handlers to specific routes of word-details-page
++ Validation of input
++ Refusal of empty input
++ Scrolling dots (incomplete logic)
 
 Missing:
 - word-details-page
@@ -24,6 +27,7 @@ Missing:
 - suggest-word-page (with or without auth)
 - dictionary-page
 - authenthication (user logged in or guest)
+- complete dots logic
 
 
 3. Technologies
